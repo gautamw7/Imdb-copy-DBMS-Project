@@ -1,0 +1,122 @@
+// need to add the Rating column, or a feature in the front end so that we can give give the rating to them 
+/*
+* Also add many shows, atleast 20 
+*/
+
++---------------+----------------+-----------+
+| table_name    | column_name    | data_type |
++---------------+----------------+-----------+
+| adetails      | AnimeId        | varchar   |
+| adetails      | Va_Id          | varchar   |
+| adetails      | title          | varchar   |
+| adetails      | type           | varchar   |
+| adetails      | character_name | varchar   |
+| aepisodes     | animeId        | varchar   |
+| aepisodes     | title          | varchar   |
+| aepisodes     | progress       | int       |
+| amovie        | title          | varchar   |
+| amovie        | animeId        | varchar   |
+| amovie        | tags           | varchar   |
+| amovie        | Release_year   | int       |
+| anime         | AnimeId        | varchar   |
+| anime         | Title          | varchar   |
+| anime         | Release_year   | int       |
+| anime         | Type           | varchar   |
+| anime         | Season         | int       |
+| anime         | Progress       | int       |
+| anime         | Tags           | varchar   |
+| updatingtable | animeId        | varchar   |
+| updatingtable | title          | varchar   |
+| updatingtable | progress       | int       |
+| valog         | action         | varchar   |
+| valog         | Va_id          | varchar   |
+| valog         | old_title      | varchar   |
+| valog         | new_title      | varchar   |
+| valog         | date           | date      |
+| voice_actor   | VA_Id          | varchar   |
+| voice_actor   | Last_Name      | varchar   |
+| voice_actor   | First_Name     | varchar   |
+| voice_actor   | Title          | varchar   |
+| voice_actor   | AnimeId        | varchar   |
+| voice_actor   | Character_Name | varchar   |
+| voice_actor   | Role           | varchar   |
++---------------+----------------+-----------+
+
+
+mysql> SHOW COLUMNS FROM anime;
++--------------+--------------+------+-----+---------+-------+
+| Field        | Type         | Null | Key | Default | Extra |
++--------------+--------------+------+-----+---------+-------+
+| AnimeId      | varchar(4)   | NO   | PRI | NULL    |       |
+| Title        | varchar(255) | YES  |     | NULL    |       |
+| Release_year | int(4)       | YES  |     | NULL    |       |
+| Type         | varchar(10)  | YES  |     | NULL    |       |
+| Season       | int(11)      | YES  |     | NULL    |       |
+| Progress     | int(11)      | YES  |     | NULL    |       |
+| Tags         | varchar(255) | YES  |     | NULL    |       |
++--------------+--------------+------+-----+---------+-------+
+7 rows in set (0.00 sec)
+
+mysql> SHOW COLUMNS FROM valog;
++-----------+--------------+------+-----+---------+-------+
+| Field     | Type         | Null | Key | Default | Extra |
++-----------+--------------+------+-----+---------+-------+
+| action    | varchar(20)  | YES  |     | NULL    |       |
+| Va_id     | varchar(4)   | YES  |     | NULL    |       |
+| old_title | varchar(255) | YES  |     | NULL    |       |
+| new_title | varchar(255) | YES  |     | NULL    |       |
+| date      | date         | YES  |     | NULL    |       |
++-----------+--------------+------+-----+---------+-------+
+5 rows in set (0.00 sec)
+
+mysql> SHOW COLUMNS FROM voice_actor;
++----------------+--------------+------+-----+---------+-------+
+| Field          | Type         | Null | Key | Default | Extra |
++----------------+--------------+------+-----+---------+-------+
+| VA_Id          | varchar(5)   | NO   | PRI | NULL    |       |
+| Last_Name      | varchar(100) | YES  |     | NULL    |       |
+| First_Name     | varchar(100) | YES  |     | NULL    |       |
+| Title          | varchar(255) | YES  |     | NULL    |       |
+| AnimeId        | varchar(4)   | YES  | MUL | NULL    |       |
+| Character_Name | varchar(100) | YES  |     | NULL    |       |
+| Role           | varchar(50)  | YES  |     | NULL    |       |
++----------------+--------------+------+-----+---------+-------+
+7 rows in set (0.00 sec)
+
+
+-- Insert data into the 'anime' table
+INSERT INTO anime (AnimeId, Title, Release_year, Type, Season, Progress, Tags)
+VALUES
+('A01', 'Death Note', 2006, 'TV', 1, 37, 'Supernatural, Suspense, Detective, Psychological, God-Tier'),
+('A02', 'Haikyuu', 2014, 'TV', 1, 25, 'Team-Sports, School, Volleyball'),
+('A03', 'Your Lie in April', 2014, 'TV', 1, 22, 'Love Polygon, Drama, Romance, Music, School'),
+('A04', 'Silent Voice', 2016, 'Movie', NULL, 1, 'Romantic Subtext, Drama, Depression'),
+('A05', 'Mob Psycho 100', 2016, 'TV', 1, 12, 'Action, Comedy, Super Natural'),
+('A06', 'Your Name', 2016, 'Movie', NULL, 1, 'Drama, Romance, Super Natural'),
+('A07', 'Spirited Away', 2001, 'Movie', NULL, 1, 'Drama, Adventure, Super Natural'),
+('A08', 'Naruto', 2007, 'TV', 1, 500, 'Drama, Adventure, Action, Fantasy'),
+('A09', 'My Teen Romantic Comedy SNAFU', 2013, 'TV', 1, 13, 'Drama, Comedy, Romance'),
+('A10', 'Redo of Healer', 2021, 'TV', 1, 12, 'Adult, Revenge, Adventure, Comedy, Fantasy');
+
+-- Insert data into the 'voice_actor' table
+INSERT INTO voice_actor (VA_Id, Last_Name, First_Name, Title, AnimeId, Character_Name, Role)
+VALUES
+('VA01', 'Mamoru', 'Miyano', 'Death Note', 'A01', 'Light Yagami', 'Main Lead'),
+('VA02', 'Yamaguchi', 'Kappei', 'Death Note', 'A01', 'Lawliet L', 'Main'),
+('VA03', 'Murase', 'Ayumu', 'Haikyuu', 'A02', 'Hinata Shouyou', 'Main'),
+('VA04', 'Ishikawa', 'Kaito', 'Haikyuu', 'A02', 'Kageyama Tobio', 'Main'),
+('VA05', 'Namikawa', 'Daisuke', 'Haikyuu', 'A02', 'Tooru Oikawa', 'Supporting'),
+('VA06', 'Taneda', 'Risa', 'Your Lie in April', 'A03', 'Miyazono Kaori', 'Main'),
+('VA07', 'Hanae', 'Natsuki', 'Your Lie in April', 'A03', 'Arima Kousei', 'Main'),
+('VA08', 'Sakura', 'Ayane', 'Your Lie in April', 'A03', 'Tsubaki Sawabe', 'Main'),
+('VA09', 'Oosaka', 'Ryouta', 'Your Lie in April', 'A03', 'Watari Ryouta', 'Main'),
+('VA10', 'Hayami', 'Saori', 'Silent Voice', 'A04', 'Nishimiya Shouko', 'Main'),
+('VA11', 'Irino', 'Miyu', 'Silent Voice', 'A04', 'Ishida Shouya', 'Main'),
+('VA12', 'Sakurai', 'Takahiro', 'Mob Psycho 100', 'A05', 'Reigen Arataka', 'Main'),
+('VA13', 'Itou', 'Setsuo', 'Mob Psycho 100', 'A05', 'Kageyama Shigeo', 'Main'),
+('VA14', 'Ootsuka', 'Akio', 'Mob Psycho 100', 'A05', 'Ebuko', 'Main'),
+('VA15', 'Kamishiraishi', 'Mone', 'Your Name', 'A06', 'Miyamizu Mitsuha', 'Main'),
+('VA16', 'Kamiki', 'Ryunosuke', 'Your Name', 'A06', 'Tachibana Taki', 'Main'),
+('VA17', 'Irino', 'Miyu', 'Spirited Away', 'A07', 'Light Yagami', 'Main'),
+('VA18', 'Ogino', 'Chihiro', 'Spirited Away', 'A07', 'Light Yagami', 'Main'),
+('VA19', 'Takeuchi', 'Junk
