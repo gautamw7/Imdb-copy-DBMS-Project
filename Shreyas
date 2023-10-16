@@ -1,0 +1,14 @@
+
+CREATE TABLE tv_shows (Id CHAR(4) PRIMARY KEY,Title VARCHAR(255),Genre VARCHAR(255),Seasons INT,Director VARCHAR(255),ReleaseYear INT);
+
+INSERT INTO tv_shows (Id, Title, Genre, Seasons, Director, ReleaseYear) VALUES
+    ('T001', 'Breaking Bad', 'Crime/Drama', 5, 'Vince Gilligan', 2008),
+    ('T002', 'Game of Thrones', 'Fantasy/Drama', 8, 'David Benioff, D.B. Weiss', 2011),
+    ('T003', 'Stranger Things', 'Sci-Fi/Horror', 4, 'The Duffer Brothers', 2016),
+    ('T004', 'Friends', 'Comedy', 10, 'Kevin S. Bright, Marta Kauffman, David Crane', 1994),
+    ('T005', 'The Crown', 'Drama/History', 5, 'Stephen Daldry, Philip Martin, Julian Jarrold, and Benjamin Caron', 2016),
+    ('T006', 'The Office', 'Comedy', 9, 'Randall Einhorn', 2005),
+    ('T007', 'Black Mirror', 'Sci-Fi/Anthology', 5, 'Charlton Brooker', 2011),
+    ('T008', 'The Mandalorian', 'Sci-Fi/Action', 2, 'Rick Famuyiwa, Deborah Chow, Bryce Dallas Howard, and Taika Waititi, 2019),
+    ('T009', 'The Witcher', 'Fantasy/Action', 2, 'Tomasz Bagiński', 2019),
+    ('T010', 'Sherlock', 'Crime/Drama', 4, 'Paul McGuigan', 2010);
