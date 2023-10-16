@@ -12,3 +12,27 @@ INSERT INTO tv_shows (Id, Title, Genre, Seasons, Director, ReleaseYear) VALUES
     ('T008', 'The Mandalorian', 'Sci-Fi/Action', 2, 'Rick Famuyiwa, Deborah Chow, Bryce Dallas Howard, and Taika Waititi, 2019),
     ('T009', 'The Witcher', 'Fantasy/Action', 2, 'Tomasz Bagiński', 2019),
     ('T010', 'Sherlock', 'Crime/Drama', 4, 'Paul McGuigan', 2010);
+
+
+
+CREATE TABLE actors ( actorId CHAR(4) PRIMARY KEY,first_name VARCHAR(255),last_nameVARCHAR(255), birth_date DATE, gender VARCHAR(10));
+
+INSERT INTO actors (actorId, first_name, last_name, birth_date, gender) VALUES
+    ('A001', 'Bryan', 'Cranston', '1956-03-07', 'Male'),
+    ('A002', 'Kit', 'Harington', '1986-12-26', 'Male'),
+    ('A003', 'Millie', 'Bobby Brown', '2004-02-19', 'Female'),
+    ('A004', 'Jennifer', 'Aniston', '1969-02-11', 'Female'),
+    ('A005', 'Olivia', 'Colman', '1974-01-30', 'Female'),
+    ('A006', 'Steve', 'Carell', '1962-08-16', 'Male'),
+    ('A007', 'Claire', 'Foy','1984-04-16', 'Female'), 
+    ('A008', 'Pedro', 'Pascal', '1975-04-02', 'Male'),
+    ('A009', 'Henry', 'Cavill', '1983-05-05', 'Male'),
+    ('A010', 'Benedict', 'Cumberbatch', '1976-07-19', 'Male');
+
+
+CREATE TABLE male_actors AS SELECT first_name, last_name, gender FROM actors WHERE gender = 'Male';
+
+
+CREATE TABLE female_actors AS SELECT first_name, last_name, gender FROM actors WHERE gender = 'Female' ;
+
+
