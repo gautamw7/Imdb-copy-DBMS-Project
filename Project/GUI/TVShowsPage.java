@@ -23,18 +23,19 @@ import javax.swing.*;
 /**
  * @author lenovo
  */
-public class AnimePage extends JFrame  {
+public class TVShowsPage extends JFrame  {
     private DatabaseConnection dbConnection;
 
+
     private JFrame this2;
-    private JButton HomePageButton, BackPageButton, AnimeButton1,AnimeButton2,AnimeButton3,AnimeButton4,AnimeButton5,NextPageButton;
+    private JButton HomePageButton, BackPageButton, TVShowsButton1,TVShowsButton2,TVShowsButton3,TVShowsButton4,TVShowsButton5,NextPageButton;
     private ButtonGroup buttonGroup;
     private JLabel label7;
-    private JButton[] animeButtons;
+    private JButton[] movieButtons;
     private int DisplayPageCount = 5;
 
     private int pagecount = 0 ;
-    public AnimePage(int intialPage){
+    public TVShowsPage(int intialPage){
         initComponents(getEntries(), intialPage);
         setVisible(true);
         setSize(500, 420);
@@ -51,39 +52,39 @@ public class AnimePage extends JFrame  {
         pagecount = intialPage;
         buttonGroup = new ButtonGroup();
         this2 = new JFrame();
-        AnimeButton1 = new JButton();
-        AnimeButton2 = new JButton();
-        AnimeButton3 = new JButton();
-        AnimeButton4 = new JButton();
-        AnimeButton5 = new JButton();
+        TVShowsButton1 = new JButton();
+        TVShowsButton2 = new JButton();
+        TVShowsButton3 = new JButton();
+        TVShowsButton4 = new JButton();
+        TVShowsButton5 = new JButton();
         NextPageButton = new JButton();
         HomePageButton = new JButton();
         BackPageButton = new JButton();
         label7 = new JLabel();
 
-        // The Labeling of the Movies to the Movie Page.
-        animeButtons = new JButton[]{AnimeButton1, AnimeButton2, AnimeButton3, AnimeButton4, AnimeButton5};
+        // The Labeling of the Movies to the Tvshow Page.
+        movieButtons = new JButton[]{TVShowsButton1, TVShowsButton2, TVShowsButton3, TVShowsButton4, TVShowsButton5};
         int buttonCounter = 0;
         for (int i = intialPage; i < entries.size() && buttonCounter < DisplayPageCount; i++) {
-            animeButtons[buttonCounter].setText(entries.get(i));
+            movieButtons[buttonCounter].setText(entries.get(i));
             buttonCounter++;
             pagecount++;
+
         }
-        System.out.println(pagecount);
 
         // Adding the buttons to the buttonGroup
-        buttonGroup.add(AnimeButton1);
-        buttonGroup.add(AnimeButton2);
-        buttonGroup.add(AnimeButton3);
-        buttonGroup.add(AnimeButton4);
-        buttonGroup.add(AnimeButton5);
+        buttonGroup.add(TVShowsButton1);
+        buttonGroup.add(TVShowsButton2);
+        buttonGroup.add(TVShowsButton3);
+        buttonGroup.add(TVShowsButton4);
+        buttonGroup.add(TVShowsButton5);
         ActionListener commonActionListener = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 JButton clickedButton = (JButton) e.getSource();
                 // Handle the button click here
-                String AnimeTitle = clickedButton.getText();
-                AnimeUserRatingProgressPage object = new AnimeUserRatingProgressPage(AnimeTitle);
+                String TVshowTitle = clickedButton.getText();
+                TVShowsUserRatingProgressPage object = new TVShowsUserRatingProgressPage(TVshowTitle);
             }
         };
 
@@ -95,39 +96,39 @@ public class AnimePage extends JFrame  {
             var contentPane = getContentPane();
             contentPane.setLayout(null);
 
-            //---- AnimeButton1 ----
+            //---- TVShowsButton1 ----
 
-            AnimeButton1.setBackground(new Color(0x00ccdb));
-            contentPane.add(AnimeButton1);
-            AnimeButton1.setBounds(20, 20, 180, 35);
-            AnimeButton1.addActionListener(commonActionListener);
-            //---- AnimeButton2 ----
+            TVShowsButton1.setBackground(new Color(0x00ccdb));
+            contentPane.add(TVShowsButton1);
+            TVShowsButton1.setBounds(20, 20, 180, 35);
+            TVShowsButton1.addActionListener(commonActionListener);
+            //---- TVShowsButton2 ----
 
-            AnimeButton2.setBackground(new Color(0x00ccdb));
-            contentPane.add(AnimeButton2);
-            AnimeButton2.setBounds(20, 75, 180, 35);
-            AnimeButton2.addActionListener(commonActionListener);
+            TVShowsButton2.setBackground(new Color(0x00ccdb));
+            contentPane.add(TVShowsButton2);
+            TVShowsButton2.setBounds(20, 75, 180, 35);
+            TVShowsButton2.addActionListener(commonActionListener);
 
-            //---- AnimeButton3 ----
+            //---- TVShowsButton3 ----
 
-            AnimeButton3.setBackground(new Color(0x00ccdb));
-            contentPane.add(AnimeButton3);
-            AnimeButton3.setBounds(20, 125, 180, 35);
-            AnimeButton3.addActionListener(commonActionListener);
+            TVShowsButton3.setBackground(new Color(0x00ccdb));
+            contentPane.add(TVShowsButton3);
+            TVShowsButton3.setBounds(20, 125, 180, 35);
+            TVShowsButton3.addActionListener(commonActionListener);
 
-            //---- AnimeButton4 ----
+            //---- TVShowsButton4 ----
 
-            AnimeButton4.setBackground(new Color(0x00ccdb));
-            contentPane.add(AnimeButton4);
-            AnimeButton4.setBounds(20, 175, 180, 35);
-            AnimeButton4.addActionListener(commonActionListener);
+            TVShowsButton4.setBackground(new Color(0x00ccdb));
+            contentPane.add(TVShowsButton4);
+            TVShowsButton4.setBounds(20, 175, 180, 35);
+            TVShowsButton4.addActionListener(commonActionListener);
 
-            //---- AnimeButton5 ----
+            //---- TVShowsButton5 ----
 
-            AnimeButton5.setBackground(new Color(0x00ccdb));
-            contentPane.add(AnimeButton5);
-            AnimeButton5.setBounds(20, 225, 180, 35);
-            AnimeButton5.addActionListener(commonActionListener);
+            TVShowsButton5.setBackground(new Color(0x00ccdb));
+            contentPane.add(TVShowsButton5);
+            TVShowsButton5.setBounds(20, 225, 180, 35);
+            TVShowsButton5.addActionListener(commonActionListener);
 
             //---- NextPageButton ----
             NextPageButton.setText("NEXT");
@@ -135,9 +136,8 @@ public class AnimePage extends JFrame  {
             contentPane.add(NextPageButton);
             NextPageButton.setBounds(350, 305, 110, 35);
             NextPageButton.addActionListener(e ->{
-
                 if (pagecount < entries.size()) {
-                    AnimePage object = new AnimePage(pagecount);
+                    TVShowsPage object = new TVShowsPage(pagecount);
                     dispose();
                 } else {
                     // All movies have been displayed
@@ -167,10 +167,12 @@ public class AnimePage extends JFrame  {
                     pagecount = 5;
                 }else{
                     pagecount -= DisplayPageCount;
-                    AnimePage object = new AnimePage(pagecount - 5);
+                    TVShowsPage object = new TVShowsPage(pagecount - 5);
                     dispose();
                 }
             });
+
+
 
             //---- label7 ----
             label7.setText("text");
@@ -203,7 +205,7 @@ public class AnimePage extends JFrame  {
         openDatabaseConnection();
         try {
             Connection connection = dbConnection.getConnection();
-            String query = "SELECT Title FROM anime";
+            String query = "SELECT Title FROM tvshows";
 
             try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
                 ResultSet resultSet = preparedStatement.executeQuery();
@@ -233,7 +235,7 @@ public class AnimePage extends JFrame  {
     }
 
     public static void main(String[] args){
-        AnimePage object = new AnimePage(0);
+        TVShowsPage object = new TVShowsPage(0);
     }
 
 }

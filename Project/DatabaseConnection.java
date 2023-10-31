@@ -10,7 +10,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class DatabaseConnection {
-    private static final String DB_URL = "jdbc:mysql://localhost/DBMS";
+    private static final String DB_URL = "jdbc:mysql://localhost:3306/DBMS?noAccessToProcedureBodies=true";
     private static final String DB_USER = "Gautam";
     private static final String DB_PASSWORD = "@pokemon@";
     private Connection connection;
