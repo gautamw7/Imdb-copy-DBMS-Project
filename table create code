@@ -1,0 +1,60 @@
+CREATE TABLE Anime (
+    AnimeId VARCHAR(4) NOT NULL PRIMARY KEY,
+    Title VARCHAR(255),
+    Release_year INT(4),
+    Type VARCHAR(10),
+    Season INT(11),
+    Total_Progress INT(11),
+    User_Progress INT(11),
+    Rating FLOAT,
+    Tags VARCHAR(255)
+);
+
+CREATE TABLE Actor (
+    actorId CHAR(4) NOT NULL PRIMARY KEY,
+    first_name VARCHAR(255),
+    last_name VARCHAR(255),
+    birth_date DATE,
+    gender VARCHAR(10),
+    tvshowid VARCHAR(4),
+    movieid VARCHAR(4)
+);
+
+CREATE TABLE Director (
+    dirID VARCHAR(5) NOT NULL PRIMARY KEY,
+    first_name VARCHAR(50),
+    last_name VARCHAR(50),
+    age INT(11),
+    gender VARCHAR(10),
+    tvshowid VARCHAR(4),
+    MovieId VARCHAR(4)
+);
+
+CREATE TABLE Movie (
+    movieID VARCHAR(4) NOT NULL PRIMARY KEY,
+    title VARCHAR(255),
+    release_date DATE,
+    genres VARCHAR(255),
+    watched TINYINT(1),
+    ratings FLOAT
+);
+
+CREATE TABLE TVShow (
+    TVS_Id VARCHAR(4) NOT NULL PRIMARY KEY,
+    Title VARCHAR(50),
+    Genre VARCHAR(50),
+    ReleaseYear INT(11),
+    Season INT(11),
+    User_Progress INT(11),
+    Rating FLOAT
+);
+
+CREATE TABLE Voice_Actor (
+    VA_Id VARCHAR(5) NOT NULL PRIMARY KEY,
+    Last_Name VARCHAR(100),
+    First_Name VARCHAR(100),
+    Title VARCHAR(255),
+    AnimeId VARCHAR(4),
+    Character_Name VARCHAR(100),
+    Role VARCHAR(50)
+);
