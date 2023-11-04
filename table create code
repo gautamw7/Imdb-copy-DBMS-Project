@@ -49,7 +49,7 @@ CREATE TABLE TVShow (
     Rating FLOAT
 );
 
-CREATE TABLE Voice_Actor (
+CREATE TABLE VoiceActor (
     VA_Id VARCHAR(5) NOT NULL PRIMARY KEY,
     Last_Name VARCHAR(100),
     First_Name VARCHAR(100),
