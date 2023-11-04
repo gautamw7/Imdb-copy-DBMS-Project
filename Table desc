@@ -1,0 +1,78 @@
++----------------+--------------+------+-----+---------+-------+
+| Field          | Type         | Null | Key | Default | Extra |
++----------------+--------------+------+-----+---------+-------+
+| AnimeId        | varchar(4)   | NO   | PRI | NULL    |       |
+| Title          | varchar(255) | YES  |     | NULL    |       |
+| Release_year   | int(4)       | YES  |     | NULL    |       |
+| Type           | varchar(10)  | YES  |     | NULL    |       |
+| Season         | int(11)      | YES  |     | NULL    |       |
+| Total_Progress | int(11)      | YES  |     | NULL    |       |
+| User_Progress  | int(11)      | YES  |     | NULL    |       |
+| rating         | float        | YES  |     | NULL    |       |
+| Tags           | varchar(255) | YES  |     | NULL    |       |
++----------------+--------------+------+-----+---------+-------+
+9 rows in set (0.01 sec)
+
++------------+--------------+------+-----+---------+-------+
+| Field      | Type         | Null | Key | Default | Extra |
++------------+--------------+------+-----+---------+-------+
+| actorId    | char(4)      | NO   | PRI | NULL    |       |
+| first_name | varchar(255) | YES  |     | NULL    |       |
+| last_name  | varchar(255) | YES  |     | NULL    |       |
+| birth_date | date         | YES  |     | NULL    |       |
+| gender     | varchar(10)  | YES  |     | NULL    |       |
+| tvshowid   | varchar(4)   | YES  | MUL | NULL    |       |
+| movieid    | varchar(4)   | YES  | MUL | NULL    |       |
++------------+--------------+------+-----+---------+-------+
+7 rows in set (0.00 sec)
+
++------------+-------------+------+-----+---------+-------+
+| Field      | Type        | Null | Key | Default | Extra |
++------------+-------------+------+-----+---------+-------+
+| dirID      | varchar(5)  | NO   | PRI | NULL    |       |
+| first_name | varchar(50) | YES  |     | NULL    |       |
+| last_name  | varchar(50) | YES  |     | NULL    |       |
+| age        | int(11)     | YES  |     | NULL    |       |
+| gender     | varchar(10) | YES  |     | NULL    |       |
+| tvshowid   | varchar(4)  | YES  | MUL | NULL    |       |
+| MovieId    | varchar(4)  | YES  | MUL | NULL    |       |
++------------+-------------+------+-----+---------+-------+
+7 rows in set (0.00 sec)
+
++--------------+--------------+------+-----+---------+-------+
+| Field        | Type         | Null | Key | Default | Extra |
++--------------+--------------+------+-----+---------+-------+
+| movieID      | varchar(4)   | NO   | PRI | NULL    |       |
+| title        | varchar(255) | YES  |     | NULL    |       |
+| release_date | date         | YES  |     | NULL    |       |
+| genres       | varchar(255) | YES  |     | NULL    |       |
+| watched      | tinyint(1)   | YES  |     | NULL    |       |
+| ratings      | float        | YES  |     | NULL    |       |
++--------------+--------------+------+-----+---------+-------+
+6 rows in set (0.00 sec)
+
++---------------+-------------+------+-----+---------+-------+
+| Field         | Type        | Null | Key | Default | Extra |
++---------------+-------------+------+-----+---------+-------+
+| TVS_Id        | varchar(4)  | NO   | PRI |         |       |
+| Title         | varchar(50) | YES  |     | NULL    |       |
+| Genre         | varchar(50) | YES  |     | NULL    |       |
+| ReleaseYear   | int(11)     | YES  |     | NULL    |       |
+| Season        | int(11)     | YES  |     | NULL    |       |
+| User_Progress | int(11)     | YES  |     | NULL    |       |
+| Rating        | float       | YES  |     | NULL    |       |
++---------------+-------------+------+-----+---------+-------+
+7 rows in set (0.00 sec)
+
++----------------+--------------+------+-----+---------+-------+
+| Field          | Type         | Null | Key | Default | Extra |
++----------------+--------------+------+-----+---------+-------+
+| VA_Id          | varchar(5)   | NO   | PRI | NULL    |       |
+| Last_Name      | varchar(100) | YES  |     | NULL    |       |
+| First_Name     | varchar(100) | YES  |     | NULL    |       |
+| Title          | varchar(255) | YES  |     | NULL    |       |
+| AnimeId        | varchar(4)   | YES  | MUL | NULL    |       |
+| Character_Name | varchar(100) | YES  |     | NULL    |       |
+| Role           | varchar(50)  | YES  |     | NULL    |       |
++----------------+--------------+------+-----+---------+-------+
+7 rows in set (0.00 sec)
