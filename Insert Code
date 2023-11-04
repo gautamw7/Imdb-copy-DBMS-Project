@@ -1,0 +1,97 @@
+INSERT INTO Anime (AnimeId, Title, Release_year, Type, Season, Total_Progress, User_Progress, rating, Tags)
+VALUES
+    ('A01', 'Death Note', 2006, 'TV', 1, 37, 13, 7, 'Supernatural, Suspense, Detective, Psychological, God-Tier'),
+    ('A02', 'Haikyuu', 2014, 'TV', 1, 25, 24, 4.1, 'Team-Sports, School, Volleyball'),
+    ('A03', 'Your Lie in April', 2014, 'TV', 1, 22, NULL, NULL, 'Love Polygon, Drama, Romance, Music, School'),
+    ('A04', 'Silent Voice', 2016, 'Movie', NULL, 1, 1, 10, 'Romantic Subtext, Drama, Depression'),
+    ('A05', 'Mob Psycho 100', 2016, 'TV', 1, 12, NULL, NULL, 'Action, Comedy, Super Natural'),
+    ('A06', 'Your Name', 2016, 'Movie', NULL, 1, NULL, NULL, 'Drama, Romance, Super Natural'),
+    ('A07', 'Spirited Away', 2001, 'Movie', NULL, 1, NULL, NULL, 'Drama, Adventure, Super Natural'),
+    ('A08', 'Naruto', 2007, 'TV', 1, 500, NULL, NULL, 'Drama, Adventure, Action, Fantasy'),
+    ('A09', 'My Teen Romantic Comedy SNAFU', 2013, 'TV', 1, 13, NULL, NULL, 'Drama, Comedy, Romance'),
+    ('A10', 'Redo of Healer', 2021, 'TV', 1, 12, 5, 9.3, 'Adult, Revenge, Adventure, Comedy, Fantasy');
+
+INSERT INTO Anime (AnimeId, Title, Release_year, Type, Season, Total_Progress, User_Progress, rating, Tags)
+VALUES
+    ('A01', 'Death Note', 2006, 'TV', 1, 37, 13, 7, 'Supernatural, Suspense, Detective, Psychological, God-Tier'),
+    ('A02', 'Haikyuu', 2014, 'TV', 1, 25, 24, 4.1, 'Team-Sports, School, Volleyball'),
+    ('A03', 'Your Lie in April', 2014, 'TV', 1, 22, NULL, NULL, 'Love Polygon, Drama, Romance, Music, School'),
+    ('A04', 'Silent Voice', 2016, 'Movie', NULL, 1, 1, 10, 'Romantic Subtext, Drama, Depression'),
+    ('A05', 'Mob Psycho 100', 2016, 'TV', 1, 12, NULL, NULL, 'Action, Comedy, Super Natural'),
+    ('A06', 'Your Name', 2016, 'Movie', NULL, 1, NULL, NULL, 'Drama, Romance, Super Natural'),
+    ('A07', 'Spirited Away', 2001, 'Movie', NULL, 1, NULL, NULL, 'Drama, Adventure, Super Natural'),
+    ('A08', 'Naruto', 2007, 'TV', 1, 500, NULL, NULL, 'Drama, Adventure, Action, Fantasy'),
+    ('A09', 'My Teen Romantic Comedy SNAFU', 2013, 'TV', 1, 13, NULL, NULL, 'Drama, Comedy, Romance'),
+    ('A10', 'Redo of Healer', 2021, 'TV', 1, 12, 5, 9.3, 'Adult, Revenge, Adventure, Comedy, Fantasy');
+
+INSERT INTO Director (dirID, first_name, last_name, age, gender, tvshowid, MovieId)
+VALUES
+    ('DR001', 'Vince', 'Gilligan', 54, 'Male', 'T001', NULL),
+    ('DR002', 'David', 'Benioff', 48, 'Male', 'T002', NULL),
+    ('DR004', 'Matt', 'Duffer', 35, 'Male', 'T003', NULL),
+    ('DR006', 'Kevin S.', 'Bright', 66, 'Male', 'T004', NULL),
+    ('DR009', 'Stephen', 'Daldry', 60, 'Male', 'T005', NULL),
+    ('DR013', 'Randall', 'Einhorn', 60, 'Male', 'T006', NULL),
+    ('DR014', 'Charlie', 'Brooker', 51, 'Male', 'T007', NULL),
+    ('DR015', 'Rick', 'Famuyiwa', 49, 'Male', 'T008', NULL),
+    ('DR019', 'Tomasz', 'Bagiński', 43, 'Male', 'T009', NULL),
+    ('DR020', 'Paul', 'McGuigan', 58, 'Male', 'T010', NULL),
+    ('DR021', 'Christopher', 'Nolan', 51, 'Male', NULL, 'M001'),
+    ('DR022', 'Rohit', 'Shetty', 49, 'Male', NULL, 'M002'),
+    ('DR023', 'Christopher', 'McQuarrie', 53, 'Male', NULL, 'M003'),
+    ('DR024', 'Andy', 'Muschietti', 48, 'Male', NULL, 'M004'),
+    ('DR025', 'James', 'Mangold', 58, 'Male', NULL, 'M005');
+
+INSERT INTO Movie (movieID, title, release_date, genres, watched, ratings)
+VALUES
+    ('M001', 'Oppenheimer', '2023-07-21', '["Biography", "Drama", "History"]', 1, 8.6),
+    ('M002', 'Baipan Bhari Deva', '2023-06-30', '["Comedy", "Drama", "Family"]', 1, 7),
+    ('M003', 'Mission Impossible - Dead Reckoning Part One', '2023-07-12', '["Action", "Adventure", "Thriller"]', 1, 10),
+    ('M004', 'The Flash', '2023-06-15', '["Action", "Adventure", "Fantasy", "Sci-fi"]', 0, NULL),
+    ('M005', 'The Wolverine', '2013-07-26', '["Action", "Sci-fi"]', 0, NULL);
+
+INSERT INTO TV_Show (TVS_Id, Title, Genre, ReleaseYear, Season, User_Progress, Rating)
+VALUES
+    ('T001', 'Breaking Bad', 'Crime/Drama', 2008, 5, 0, 6.5),
+    ('T002', 'Game of Thrones', 'Fantasy/Drama', 2011, 8, NULL, NULL),
+    ('T003', 'Stranger Things', 'Sci-Fi/Horror', 2016, 4, 2, 7),
+    ('T004', 'Friends', 'Comedy', 1994, 10, 5, 10),
+    ('T005', 'The Crown', 'Drama/History', 2016, 5, 0, 6.9),
+    ('T006', 'The Office', 'Comedy', 2005, 9, 5, 0),
+    ('T007', 'Black Mirror', 'Sci-Fi/Anthology', 2011, 5, 2, 8.7),
+    ('T008', 'The Mandalorian', 'Sci-Fi/Action', 2019, 2, NULL, NULL),
+    ('T009', 'The Witcher', 'Fantasy/Action', 2019, 2, NULL, NULL),
+    ('T010', 'Sherlock', 'Crime/Drama', 2010, 4, NULL, NULL);
+
+INSERT INTO Voice_Actors (VA_Id, Last_Name, First_Name, Title, AnimeId, Character_Name, Role)
+VALUES
+    ('VA01', 'Mamoru', 'Miyano', 'Death Note', 'A01', 'Light Yagami', 'Main Lead'),
+    ('VA02', 'Yamaguchi', 'Kappei', 'Death Note', 'A01', 'Lawliet L', 'Main'),
+    ('VA03', 'Murase', 'Ayumu', 'Haikyuu', 'A02', 'Hinata Shouyou', 'Main'),
+    ('VA04', 'Ishikawa', 'Kaito', 'Haikyuu', 'A02', 'Kageyama Tobio', 'Main'),
+    ('VA05', 'Namikawa', 'Daisuke', 'Haikyuu', 'A02', 'Tooru Oikawa', 'Supporting'),
+    ('VA06', 'Taneda', 'Risa', 'Your Lie in April', 'A03', 'Miyazono Kaori', 'Main'),
+    ('VA07', 'Hanae', 'Natsuki', 'Your Lie in April', 'A03', 'Arima Kousei', 'Main'),
+    ('VA08', 'Sakura', 'Ayane', 'Your Lie in April', 'A03', 'Tsubaki Sawabe', 'Main'),
+    ('VA09', 'Oosaka', 'Ryouta', 'Your Lie in April', 'A03', 'Watari Ryouta', 'Main'),
+    ('VA10', 'Hayami', 'Saori', 'Silent Voice', 'A04', 'Nishimiya Shouko', 'Main'),
+    ('VA11', 'Irino', 'Miyu', 'Silent Voice', 'A04', 'Ishida Shouya', 'Main'),
+    ('VA12', 'Sakurai', 'Takahiro', 'Mob Psycho 100', 'A05', 'Reigen Arataka', 'Main'),
+    ('VA13', 'Itou', 'Setsuo', 'Mob Psycho 100', 'A05', 'Kageyama Shigeo', 'Main'),
+    ('VA14', 'Ootsuka', 'Akio', 'Mob Psycho 100', 'A05', 'Ebuko', 'Main'),
+    ('VA15', 'Kamishiraishi', 'Mone', 'Your Name', 'A06', 'Miyamizu Mitsuha', 'Main'),
+    ('VA16', 'Kamiki', 'Ryunosuke', 'Your Name', 'A06', 'Tachibana Taki', 'Main'),
+    ('VA17', 'Irino', 'Miyu', 'Spirited Away', 'A07', 'Light Yagami', 'Main'),
+    ('VA18', 'Ogino', 'Chihiro', 'Spirited Away', 'A07', 'Light Yagami', 'Main'),
+    ('VA19', 'Takeuchi', 'Junko', 'Naruto', 'A08', 'Uzumaki Naruto', 'Main'),
+    ('VA20', 'Inoue', 'Kazuhiko', 'Naruto', 'A08', 'Hatake Kakashi', 'Main'),
+    ('VA21', 'Sugiyama', 'Noriaki', 'Naruto', 'A08', 'Uchiha Sasuke', 'Main'),
+    ('VA22', 'Ishikawa', 'Hideo', 'Naruto', 'A08', 'Uchiha Itachi', 'God'),
+    ('VA23', 'Ootsuka', 'Houchuu', 'Naruto', 'A08', 'Jiraya', 'Supporting'),
+    ('VA24', 'Eguchi', 'Takuya', 'My Teen Romantic Comedy SNAFU', 'A09', 'Hikigaya Hachiman', 'Main'),
+    ('VA25', 'Hayami', 'Saori', 'My Teen Romantic Comedy SNAFU', 'A09', 'Yukinoshita Yukino', 'Main'),
+    ('VA26', 'Touyama', 'Nao', 'My Teen Romantic Comedy SNAFU', 'A09', 'Yuigahama Yui', 'Main'),
+    ('VA27', 'Hozumi', 'Yuya', 'Redo of Healer', 'A10', 'Keyaru', 'Main'),
+    ('VA28', 'Ishigami', 'Shizuka', 'Redo of Healer', 'A10', 'Setsuna', 'Main'),
+    ('VA29', 'Shibuya', 'Ayano', 'Redo of Healer', 'A10', 'Jioral, Flare Arlgrande', 'Main');
+  
