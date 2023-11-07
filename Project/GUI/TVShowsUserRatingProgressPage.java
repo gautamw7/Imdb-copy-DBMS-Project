@@ -161,13 +161,16 @@ public class TVShowsUserRatingProgressPage extends JFrame {
         contentPane.add(SubmitButton);
         SubmitButton.setBounds(195, 420, 175, 35);
         SubmitButton.addActionListener(e -> {
-            int userProgressDropdownData = UserProgressBox.getSelectedIndex();
-            float ratingData = (float) RatingBox.getSelectedItem();
+            int userProgressDropdownData = UserProgressBox.getSelectedIndex(); // to get the user progress 
+            float ratingData = (float) RatingBox.getSelectedItem();  // to get the ratign from the data 
             insertData(title,userProgressDropdownData , ratingData);
         });
 
-        {
-            // compute preferred size
+        { 
+             // compute preferred size of the Contianer ,
+                // So, it caluclated the width of all the componenets and then the height of all of the comoponenets in the panel, to deteemine it s width and heigh 
+                // this allows for a perfect size of the frame
+            // compute preferred size of the Frame ( Refer from tvshows page)
             Dimension preferredSize = new Dimension();
             for(int i = 0; i < contentPane.getComponentCount(); i++) {
                 Rectangle bounds = contentPane.getComponent(i).getBounds();
@@ -175,10 +178,10 @@ public class TVShowsUserRatingProgressPage extends JFrame {
                 preferredSize.height = Math.max(bounds.y + bounds.height, preferredSize.height);
             }
             Insets insets = contentPane.getInsets();
-            preferredSize.width += insets.right;
-            preferredSize.height += insets.bottom;
-            contentPane.setMinimumSize(preferredSize);
-            contentPane.setPreferredSize(preferredSize);
+            preferredSize.width += insets.right; // adding all the widthe 
+                preferredSize.height += insets.bottom; // adding all the length 
+                contentPane.setMinimumSize(preferredSize); // settign the contentPAnel  minimum size for the size 
+                contentPane.setPreferredSize(preferredSize); // setting the panel to that preferred size
         }
         pack();
         setLocationRelativeTo(getOwner());
@@ -188,12 +191,18 @@ public class TVShowsUserRatingProgressPage extends JFrame {
         List<String[]> dataList = new ArrayList<>();
         openConnection();
 
-        String Query = "{ call GetTVShowCombinedData( ? ) }"; // Note the correct stored procedure name
+        String Query = "{ call GetTVShowCombinedData( ? ) }"; // Proceedure to get the detials required for the table, by passing the name of the tvshow, 
+        //    their multiple entrires we are getting from it, because we get the combined table with directors name and then mulitple names of the actors, thats why we need a string array[] and to strore thost string array we need list 
         try (CallableStatement cstmt = dbConnection.getConnection().prepareCall(Query)) {
             cstmt.setString(1, title); // Set the movie title parameter
 
             try (ResultSet resultSet = cstmt.executeQuery()) {
                 while (resultSet.next()) {
+                    /*
+                    Getting the director name from the table and then joinning them 
+                    getting the actor name from the table and then joining them 
+                    gettin all the other details 
+                    */
                     String directorFirstName = resultSet.getString("director_first_name");
                     String directorLastName = resultSet.getString("director_last_name");
                     String actorFirstName = resultSet.getString("actor_first_name");
@@ -206,7 +215,7 @@ public class TVShowsUserRatingProgressPage extends JFrame {
 
                     String Director = directorFirstName + " " + directorLastName;
                     String Actor = actorFirstName + " " + actorLastName;
-                    String[] rowData = {
+                    String[] rowData = { // adding them in the rowData table 
                             Director,
                             Actor,
                             String.valueOf(releaseDate),
@@ -216,7 +225,7 @@ public class TVShowsUserRatingProgressPage extends JFrame {
                             Genre
                     };
 
-                    dataList.add(rowData);
+                    dataList.add(rowData);  // addint this deitals to the list 
                 }
             }
         } catch (SQLException e) {
@@ -232,14 +241,14 @@ public class TVShowsUserRatingProgressPage extends JFrame {
 
     private void insertData(String title, int userProgressDropdownData, float ratingData) {
         openConnection();
-
+        // inseeritng the data into the table 
         String updateQuery = "UPDATE tvshows SET User_Progress = ?, Rating = ? WHERE Title = ?";
         try (PreparedStatement preparedStatement = dbConnection.getConnection().prepareStatement(updateQuery)) {
             preparedStatement.setInt(1, userProgressDropdownData);
             preparedStatement.setFloat(2, ratingData);
             preparedStatement.setString(3, title);
 
-
+            // 
             int rowsAffected = preparedStatement.executeUpdate();
 
             if (rowsAffected > 0) {
