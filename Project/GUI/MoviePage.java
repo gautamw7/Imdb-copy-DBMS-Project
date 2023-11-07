@@ -24,9 +24,8 @@ import javax.swing.*;
  * @author lenovo
  */
 public class MoviePage extends JFrame  {
+    
     private DatabaseConnection dbConnection;
-
-
     private JFrame this2;
     private JButton HomePageButton, BackPageButton, MovieButton1,MovieButton2,MovieButton3,MovieButton4,MovieButton5,NextPageButton;
     private ButtonGroup buttonGroup;
@@ -34,7 +33,7 @@ public class MoviePage extends JFrame  {
     private JButton[] movieButtons;
     private int DisplayPageCount = 5;
 
-    private int pagecount = 0 ;
+    private int pagecount = 0 ; // to the count the number movies displayed 
     public MoviePage(int intialPage){
         initComponents(getEntries(), intialPage);
         setVisible(true);
@@ -49,6 +48,7 @@ public class MoviePage extends JFrame  {
         });
     }
     private void initComponents(List<String> entries ,  int intialPage ) {
+        // initial all the elements.
         pagecount = intialPage;
         buttonGroup = new ButtonGroup();
         this2 = new JFrame();
@@ -64,9 +64,10 @@ public class MoviePage extends JFrame  {
 
         // The Labeling of the Movies to the Movie Page.
         movieButtons = new JButton[]{MovieButton1, MovieButton2, MovieButton3, MovieButton4, MovieButton5};
-        int buttonCounter = 0;
-        for (int i = intialPage; i < entries.size() && buttonCounter < DisplayPageCount; i++) {
-            movieButtons[buttonCounter].setText(entries.get(i));
+        // make 5 movieButton 
+        int buttonCounter = 0;     // to count the buttons that are taking place.
+        for (int i = intialPage; i < entries.size() && buttonCounter < DisplayPageCount; i++) {  // entries.size() of list of the tvshows, and buttonCounter < 5 
+            movieButtons[buttonCounter].setText(entries.get(i));  // setting the buttonns name 
             buttonCounter++;
             pagecount++;
 
@@ -78,12 +79,14 @@ public class MoviePage extends JFrame  {
         buttonGroup.add(MovieButton3);
         buttonGroup.add(MovieButton4);
         buttonGroup.add(MovieButton5);
+        // adding a comomon ActionListinere for all the buttons 
         ActionListener commonActionListener = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                JButton clickedButton = (JButton) e.getSource();
+                JButton clickedButton = (JButton) e.getSource(); // getting the button that was ckicked 
                 // Handle the button click here
-                String MovieTitle = clickedButton.getText();
+                String MovieTitle = clickedButton.getText(); // getting the button's text 
+                // opeining the rating page 
                 MovieUserRatingPage object = new MovieUserRatingPage(MovieTitle);
             }
         };
@@ -137,6 +140,7 @@ public class MoviePage extends JFrame  {
             NextPageButton.setBounds(350, 305, 110, 35);
             NextPageButton.addActionListener(e ->{
                 if (pagecount < entries.size()) {
+                    // opeing the page again but sending the current count of the pages 
                     MoviePage object = new MoviePage(pagecount);
                     dispose();
                 } else {
@@ -201,14 +205,15 @@ public class MoviePage extends JFrame  {
 
 
     private java.util.List<String> getEntries() {
+        // getting the entres from the database
         List<String> entries = new ArrayList<>();
         openDatabaseConnection();
         try {
-            Connection connection = dbConnection.getConnection();
-            String query = "SELECT Title FROM movies";
+            Connection connection = dbConnection.getConnection();  // creating the connection using the method described below 
+            String query = "SELECT Title FROM movies"; // to select only the title from the mvoeis table in the database
 
-            try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
-                ResultSet resultSet = preparedStatement.executeQuery();
+            try (PreparedStatement preparedStatement = connection.prepareStatement(query)) { // sending the preparedStatement 
+                ResultSet resultSet = preparedStatement.executeQuery();  // gettint eh resulting set 
                 while (resultSet.next()) {
                     String entry = resultSet.getString("Title");
                     entries.add(entry);
@@ -225,7 +230,7 @@ public class MoviePage extends JFrame  {
     }
 
     private void openDatabaseConnection() {
-        dbConnection = new DatabaseConnection();
+        dbConnection = new DatabaseConnection();  // funciton to open the database from the databseconnectivity lcass 
     }
 
     private void closeDatabaseConnection() {
