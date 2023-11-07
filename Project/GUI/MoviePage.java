@@ -185,7 +185,9 @@ public class MoviePage extends JFrame  {
             label7.setBounds(0, 0, 500, 420);
 
             {
-                // compute preferred size
+                 // compute preferred size of the Contianer ,
+                // So, it caluclated the width of all the componenets and then the height of all of the comoponenets in the panel, to deteemine it s width and heigh 
+                // this allows for a perfect size of the frame
                 Dimension preferredSize = new Dimension();
                 for(int i = 0; i < contentPane.getComponentCount(); i++) {
                     Rectangle bounds = contentPane.getComponent(i).getBounds();
@@ -193,10 +195,10 @@ public class MoviePage extends JFrame  {
                     preferredSize.height = Math.max(bounds.y + bounds.height, preferredSize.height);
                 }
                 Insets insets = contentPane.getInsets();
-                preferredSize.width += insets.right;
-                preferredSize.height += insets.bottom;
-                contentPane.setMinimumSize(preferredSize);
-                contentPane.setPreferredSize(preferredSize);
+                preferredSize.width += insets.right; // adding all the widthe 
+                preferredSize.height += insets.bottom; // adding all the length 
+                contentPane.setMinimumSize(preferredSize); // settign the contentPAnel  minimum size for the size 
+                contentPane.setPreferredSize(preferredSize); // setting the panel to that preferred size
             }
             this2.pack();
             this2.setLocationRelativeTo(this2.getOwner());
