@@ -1,15 +1,3 @@
-INSERT INTO Anime (AnimeId, Title, Release_year, Type, Season, Total_Progress, User_Progress, rating, Tags)
-VALUES
-    ('A01', 'Death Note', 2006, 'TV', 1, 37, 13, 7, 'Supernatural, Suspense, Detective, Psychological, God-Tier'),
-    ('A02', 'Haikyuu', 2014, 'TV', 1, 25, 24, 4.1, 'Team-Sports, School, Volleyball'),
-    ('A03', 'Your Lie in April', 2014, 'TV', 1, 22, NULL, NULL, 'Love Polygon, Drama, Romance, Music, School'),
-    ('A04', 'Silent Voice', 2016, 'Movie', NULL, 1, 1, 10, 'Romantic Subtext, Drama, Depression'),
-    ('A05', 'Mob Psycho 100', 2016, 'TV', 1, 12, NULL, NULL, 'Action, Comedy, Super Natural'),
-    ('A06', 'Your Name', 2016, 'Movie', NULL, 1, NULL, NULL, 'Drama, Romance, Super Natural'),
-    ('A07', 'Spirited Away', 2001, 'Movie', NULL, 1, NULL, NULL, 'Drama, Adventure, Super Natural'),
-    ('A08', 'Naruto', 2007, 'TV', 1, 500, NULL, NULL, 'Drama, Adventure, Action, Fantasy'),
-    ('A09', 'My Teen Romantic Comedy SNAFU', 2013, 'TV', 1, 13, NULL, NULL, 'Drama, Comedy, Romance'),
-    ('A10', 'Redo of Healer', 2021, 'TV', 1, 12, 5, 9.3, 'Adult, Revenge, Adventure, Comedy, Fantasy');
 
 INSERT INTO Anime (AnimeId, Title, Release_year, Type, Season, Total_Progress, User_Progress, rating, Tags)
 VALUES
@@ -95,3 +83,35 @@ VALUES
     ('VA28', 'Ishigami', 'Shizuka', 'Redo of Healer', 'A10', 'Setsuna', 'Main'),
     ('VA29', 'Shibuya', 'Ayano', 'Redo of Healer', 'A10', 'Jioral, Flare Arlgrande', 'Main');
   
+INSERT INTO actors (actorId, first_name, last_name, birth_date, gender, tvshowid, movieid)
+VALUES
+    ('A001', 'Bryan', 'Cranston', '1956-03-07', 'Male', 'T001', NULL),
+    ('A002', 'Aaron', 'Paul', '1979-08-27', 'Male', 'T001', NULL),
+    ('A003', 'Emilia', 'Clarke', '1986-10-23', 'Female', 'T002', NULL),
+    ('A004', 'Kit', 'Harington', '1986-12-26', 'Male', 'T002', NULL),
+    ('A005', 'Millie', 'Bobby Brown', '2004-02-19', 'Female', 'T003', NULL),
+    ('A006', 'Finn', 'Wolfhard', '2002-12-23', 'Male', 'T003', NULL),
+    ('A007', 'Jennifer', 'Aniston', '1969-02-11', 'Female', 'T004', NULL),
+    ('A008', 'Courteney', 'Cox', '1964-06-15', 'Female', 'T004', NULL),
+    ('A009', 'Olivia', 'Colman', '1974-01-30', 'Female', 'T005', NULL),
+    ('A010', 'Tobias', 'Menzies', '1974-03-07', 'Male', 'T005', NULL),
+    ('A011', 'Steve', 'Carell', '1962-08-16', 'Male', 'T006', NULL),
+    ('A012', 'Rainn', 'Wilson', '1966-01-20', 'Male', 'T006', NULL),
+    ('A013', 'Bryce', 'Dallace', '1981-03-02', 'Male', 'T007', NULL),
+    ('A014', 'Chris', 'Martin', '1977-03-02', 'Male', 'T007', NULL),
+    ('A015', 'Pedro', 'Pascal', '1975-04-02', 'Male', 'T008', NULL),
+    ('A016', 'Gina', 'Carano', '1982-04-16', 'Female', 'T008', NULL),
+    ('A017', 'Henry', 'Cavill', '1983-05-05', 'Male', 'T009', NULL),
+    ('A018', 'Anya', 'Chalotra', '1996-07-21', 'Female', 'T009', NULL),
+    ('A019', 'Benedict', 'Cumberbatch', '1976-07-19', 'Male', 'T010', NULL),
+    ('A020', 'Martin', 'Freeman', '1971-09-08', 'Male', 'T010', NULL),
+    ('A021', 'Cillian', 'Murphy', '1976-05-25', 'Male', NULL, 'M001'),
+    ('A022', 'Emily', 'Blunt', '1983-02-23', 'Female', NULL, 'M001'),
+    ('A023', 'Ranveer', 'Singh', '1985-07-06', 'Male', NULL, 'M002'),
+    ('A024', 'Deepika', 'Padukone', '1986-01-05', 'Female', NULL, 'M002'),
+    ('A025', 'Tom', 'Cruise', '1962-07-03', 'Male', NULL, 'M003'),
+    ('A026', 'Rebecca', 'Ferguson', '1983-10-19', 'Female', NULL, 'M003'),
+    ('A027', 'Ezra', 'Miller', '1992-09-30', 'Male', NULL, 'M004'),
+    ('A028', 'Kiersey', 'Clemons', '1993-12-17', 'Female', NULL, 'M004'),
+    ('A029', 'Hugh', 'Jackman', '1968-10-12', 'Male', NULL, 'M005'),
+    ('A030', 'Tao', 'Okamoto', '1985-05-22', 'Female', NULL, 'M005');
