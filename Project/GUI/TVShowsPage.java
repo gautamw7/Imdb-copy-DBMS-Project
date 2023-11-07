@@ -34,7 +34,7 @@ public class TVShowsPage extends JFrame  {
     private JButton[] movieButtons;
     private int DisplayPageCount = 5;
 
-    private int pagecount = 0 ;
+    private int pagecount = 0 ; // to the count the number movies displayed 
     public TVShowsPage(int intialPage){
         initComponents(getEntries(), intialPage);
         setVisible(true);
@@ -49,6 +49,7 @@ public class TVShowsPage extends JFrame  {
         });
     }
     private void initComponents(List<String> entries ,  int intialPage ) {
+                // initial all the elements.
         pagecount = intialPage;
         buttonGroup = new ButtonGroup();
         this2 = new JFrame();
@@ -63,10 +64,12 @@ public class TVShowsPage extends JFrame  {
         label7 = new JLabel();
 
         // The Labeling of the Movies to the Tvshow Page.
-        movieButtons = new JButton[]{TVShowsButton1, TVShowsButton2, TVShowsButton3, TVShowsButton4, TVShowsButton5};
+        movieButtons = new JButton[]{TVShowsButton1, TVShowsButton2, TVShowsButton3, TVShowsButton4, TVShowsButton5};        // make 5 movieButton 
+
         int buttonCounter = 0;
-        for (int i = intialPage; i < entries.size() && buttonCounter < DisplayPageCount; i++) {
-            movieButtons[buttonCounter].setText(entries.get(i));
+        for (int i = intialPage; i < entries.size() && buttonCounter < DisplayPageCount; i++) {  // entries.size() of list of the tvshows, and buttonCounter < 5 
+            movieButtons[buttonCounter].setText(entries.get(i)); // setting the buttonns name 
+            buttonCounter++;
             buttonCounter++;
             pagecount++;
 
@@ -78,12 +81,15 @@ public class TVShowsPage extends JFrame  {
         buttonGroup.add(TVShowsButton3);
         buttonGroup.add(TVShowsButton4);
         buttonGroup.add(TVShowsButton5);
+                // adding a comomon ActionListinere for all the buttons 
+
         ActionListener commonActionListener = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                JButton clickedButton = (JButton) e.getSource();
+                JButton clickedButton = (JButton) e.getSource(); // getting the button that was ckicked 
                 // Handle the button click here
-                String TVshowTitle = clickedButton.getText();
+                String TVshowTitle = clickedButton.getText();         // getting the button's text 
+                // opeining the rating page 
                 TVShowsUserRatingProgressPage object = new TVShowsUserRatingProgressPage(TVshowTitle);
             }
         };
@@ -137,10 +143,11 @@ public class TVShowsPage extends JFrame  {
             NextPageButton.setBounds(350, 305, 110, 35);
             NextPageButton.addActionListener(e ->{
                 if (pagecount < entries.size()) {
+                                        // opeing the page again but sending the current count of the pages 
                     TVShowsPage object = new TVShowsPage(pagecount);
                     dispose();
                 } else {
-                    // All movies have been displayed
+                    // All tvshows  have been displayed
                     NextPageButton.setText("Finished");
                     System.out.println("All movies displayed");
                 }
@@ -181,7 +188,9 @@ public class TVShowsPage extends JFrame  {
             label7.setBounds(0, 0, 500, 420);
 
             {
-                // compute preferred size
+                // compute preferred size of the Contianer ,
+                // So, it caluclated the width of all the componenets and then the height of all of the comoponenets in the panel, to deteemine it s width and heigh 
+                // this allows for a perfect size of the frame
                 Dimension preferredSize = new Dimension();
                 for(int i = 0; i < contentPane.getComponentCount(); i++) {
                     Rectangle bounds = contentPane.getComponent(i).getBounds();
@@ -189,10 +198,10 @@ public class TVShowsPage extends JFrame  {
                     preferredSize.height = Math.max(bounds.y + bounds.height, preferredSize.height);
                 }
                 Insets insets = contentPane.getInsets();
-                preferredSize.width += insets.right;
-                preferredSize.height += insets.bottom;
-                contentPane.setMinimumSize(preferredSize);
-                contentPane.setPreferredSize(preferredSize);
+                preferredSize.width += insets.right; // adding all the widthe 
+                preferredSize.height += insets.bottom; // adding all the length 
+                contentPane.setMinimumSize(preferredSize); // settign the contentPAnel  minimum size for the size 
+                contentPane.setPreferredSize(preferredSize); // setting the panel to that preferred size
             }
             this2.pack();
             this2.setLocationRelativeTo(this2.getOwner());
@@ -201,16 +210,16 @@ public class TVShowsPage extends JFrame  {
 
 
     private java.util.List<String> getEntries() {
+                // getting the entres from the database
         List<String> entries = new ArrayList<>();
         openDatabaseConnection();
         try {
             Connection connection = dbConnection.getConnection();
             String query = "SELECT Title FROM tvshows";
 
-            try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
-                ResultSet resultSet = preparedStatement.executeQuery();
+            try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {// creating the connection using the method described below                 ResultSet resultSet = preparedStatement.executeQuery();
                 while (resultSet.next()) {
-                    String entry = resultSet.getString("Title");
+                    String entry = resultSet.getString("Title"); // to select only the title from the mvoeis table in the database
                     entries.add(entry);
                 }
             }
@@ -225,7 +234,7 @@ public class TVShowsPage extends JFrame  {
     }
 
     private void openDatabaseConnection() {
-        dbConnection = new DatabaseConnection();
+        dbConnection = new DatabaseConnection();  // funciton to open the database from the databseconnectivity lcass 
     }
 
     private void closeDatabaseConnection() {
