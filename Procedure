@@ -1,0 +1,66 @@
+DELIMITER //
+CREATE PROCEDURE GetMovieCombinedData(IN movieTitle VARCHAR(255))
+BEGIN
+    SELECT
+        d.first_name AS director_first_name,
+        d.last_name AS director_last_name,
+        a.first_name AS actor_first_name,
+        a.last_name AS actor_last_name,
+        m.title,
+        m.release_date,
+        m.genres,
+        m.watched,
+        m.ratings
+    FROM movies m
+    JOIN directors d ON m.director_id = d.id
+    JOIN actors a ON m.actor_id = a.id
+    WHERE m.title = movieTitle;
+END //
+DELIMITER ;
+
+
+DELIMITER //
+CREATE PROCEDURE GetTVShowCombinedData(IN tvShowTitle VARCHAR(255))
+BEGIN
+    SELECT
+        d.first_name AS director_first_name,
+        d.last_name AS director_last_name,
+        a.first_name AS actor_first_name,
+        a.last_name AS actor_last_name,
+        t.Title,
+        t.Season,
+        t.ReleaseYear,
+        t.Genre,
+        t.User_Progress,
+        t.Rating
+    FROM tvshows t
+    JOIN directors d ON t.director_id = d.id
+    JOIN actors a ON t.actor_id = a.id
+    WHERE t.Title = tvShowTitle;
+END //
+DELIMITER ;
+
+
+DELIMITER //
+CREATE PROCEDURE GetAnimeShowCombinedData(IN animeTitle VARCHAR(255))
+BEGIN
+    SELECT
+        va.last_name AS VA_last_name,
+        va.first_name AS VA_first_name,
+        c.Char_name,
+        a.TITLE AS Anime_Title,
+        a.AnimeId,
+        a.Title,
+        a.Release_year,
+        a.Type,
+        a.Season,
+        a.Total_Progress,
+        a.User_Progress,
+        a.rating,
+        a.Tags
+    FROM Anime AS a
+    JOIN Character AS c ON a.CharId = c.CharId
+    JOIN VA AS va ON c.VAId = va.VAId
+    WHERE a.TITLE = animeTitle;
+END //
+DELIMITER ;
