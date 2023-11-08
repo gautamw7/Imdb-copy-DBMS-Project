@@ -34,8 +34,8 @@ BEGIN
         t.User_Progress,
         t.Rating
     FROM tvshows t
-    JOIN directors d ON t.director_id = d.id
-    JOIN actors a ON t.actor_id = a.id
+    JOIN directors d ON t.TVS_Id = d.tvshowid
+    JOIN actors a ON t.TVS_Id = a.tvshowid
     WHERE t.Title = tvShowTitle;
 END //
 DELIMITER ;
@@ -47,7 +47,6 @@ BEGIN
     SELECT
         va.last_name AS VA_last_name,
         va.first_name AS VA_first_name,
-        c.Char_name,
         a.TITLE AS Anime_Title,
         a.AnimeId,
         a.Title,
@@ -59,8 +58,7 @@ BEGIN
         a.rating,
         a.Tags
     FROM Anime AS a
-    JOIN Character AS c ON a.CharId = c.CharId
-    JOIN VA AS va ON c.VAId = va.VAId
+    JOIN VA AS va ON a.animeid = va.VA_Id
     WHERE a.TITLE = animeTitle;
 END //
 DELIMITER ;
