@@ -1,0 +1,46 @@
+
+-- Apply the trigger to the movie table
+DELIMITER $$
+
+CREATE TRIGGER update_movie_rating_trigger
+BEFORE UPDATE ON movies
+FOR EACH ROW
+BEGIN
+    SET @trigger_id = UUID();
+    INSERT INTO rating_log (trigger_id, old_rating, new_rating, log_date)
+    VALUES (@trigger_id, OLD.rating, NEW.rating, NOW());
+END;
+$$
+
+DELIMITER ;
+
+-- Apply the trigger to the tvshow table
+DELIMITER $$
+
+CREATE TRIGGER update_tvshow_rating_trigger
+BEFORE UPDATE ON tvshows
+FOR EACH ROW
+BEGIN
+    SET @trigger_id = UUID();
+    INSERT INTO rating_log (trigger_id, old_rating, new_rating, old_progress, new_progress , log_date)
+    VALUES (@trigger_id,  OLD.rating,  NEW.rating,  OLD.User_Progress,  NEW.User_Progress, NOW());
+END;
+$$
+
+DELIMITER ;
+
+-- Apply the trigger to the movie_3 table
+DELIMITER $$
+
+CREATE TRIGGER update_anime_rating_trigger
+BEFORE UPDATE ON anime
+FOR EACH ROW
+BEGIN
+    SET @trigger_id = UUID();
+    INSERT INTO rating_log (trigger_id, old_rating, new_rating, old_progress, new_progress, log_date)
+    VALUES (@trigger_id, OLD.rating, NEW.rating, OLD.User_Progress, NEW.User_Progress,  NOW());
+END;
+$$
+
+DELIMITER ;
+
